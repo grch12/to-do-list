@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>To-Do List</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="content" @keyup.enter="add" />
+    <ul>
+      <li v-for="(item, index) in items">
+        <span>{{ index + 1 }}.</span>
+        <input type="text" v-model="items[index]" @change="refreshLocal" />
+        <span @click="remove(index)" class="remove-button">✕</span>
+      </li>
+    </ul>
+    <span class="total">Total {{ items.length }} item(s)</span>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
