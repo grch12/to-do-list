@@ -19,6 +19,10 @@ let app = new Vue({
     refreshLocal() {
       localStorage.setItem("localItems", JSON.stringify(this.items));
     },
+    clearAll() {
+      this.items = [];
+      this.refreshLocal();
+    },
   },
 });
 
